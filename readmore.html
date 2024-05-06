@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>READMORE</title>
+</head>
+<body>
+
+
+  
+<h1>HEADLINES</h1>
+  <div class="time">
+    <time><span id='date-time'></span></time>
+  </div>
+
+
+<link href="https://cdn.jsdelivr.net/gh/linuxguist/news@main/lora.css" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/gh/linuxguist/news@main/oswald.css" rel="stylesheet">
+
+<style>
+
+html,body {
+  background: #0B022D;
+}
+
+h1 {
+  font: 700 2.5rem/1 'Oswald', sans-serif;
+  // text-transform: uppercase;
+  text-align: center;
+  margin-top: 1px;
+  margin-bottom: 14px;  
+  color: #fff;
+}
+
+time {
+  font: 700 1.00rem 'Oswald', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  border-top: 3px solid #333333;
+  border-bottom: 3px solid #333333;
+  padding: 6px 0;
+  display: block;
+  color: beige;
+}
+time sup {
+  font-size: .675rem;
+  font-weight: normal;
+}
+
+  .news-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-between;
+  }
+
+  .article-container {
+    text-decoration: none;
+    color: black;
+    background: burlywood;
+    display: flex;
+    flex-direction: column;
+    width: 28vw; /* Increase this value if you want more articles per row, decrease if you want less*/
+    min-width: 150px;
+    max-width: 700px;
+    box-shadow: 2px 2px 25px 2px rgba(0,0,0,0.9);
+    margin: 20px;
+    transition: 0.3s;
+    font-size: 14px;
+    font-family: 'Lora', serif;
+    font-weight: 400;
+  }
+
+  @media only screen and (max-width: 850px) {
+    .article-container {
+      width: 90vw;
+    }
+  }
+
+  .article-container:hover {
+    transform: scale(1.02);
+    box-shadow: 2px 2px 25px 2px #EE7DDC;
+
+  }
+
+  .article-image {
+    width: 100%;
+    max-height: 100%;
+  }
+
+  .article-title {
+    padding: 10px;
+  }
+</style>
+
+<script>
+  // Add, remove, modify your articles here
+  document.addEventListener("DOMContentLoaded", function() {
+    var articles = [
+      {
+        onClickLink: 'https://shreyascyber.com/test/1.html',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/1.png',
+        title: 'Tobacco is a huge health threat. So why aren’t we doing more about it?'
+      },
+      {
+        onClickLink: 'https://shreyascyber.com/test/2.html',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/2.png',
+        title: 'Early detection and diagnosis a critical link for effective NCD management'
+      },
+      {
+        onClickLink: 'https://shreyascyber.com/test/3.html',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/3.png',
+        title: 'UN meeting on NCDs falls short on hard commitments, civil society say'
+      },
+      {
+        onClickLink: 'https://shreyascyber.com/test/4.html',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/4.png',
+        title: 'How Colombia battled big tobacco and won'
+      },
+      {
+        onClickLink: 'https://shreyascyber.com/test/5.html',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/5.png',
+        title: 'Investing in NCD prevention to finance sustainable development'
+      },
+      {
+        onClickLink: 'https://shreyascyber.com/test/6.html',
+        imageSource: 'https://cdn.jsdelivr.net/gh/linuxguist/news@main/6.png',
+        title: 'Communicating noncommunicable diseases'
+      }
+    ]
+
+    var rootElement = document.getElementById("imageGalleryWithTitle");
+
+    for (let i=0; i < articles.length; i++) {
+      //Create the container
+      var itemContainer = document.createElement("a");
+      itemContainer.classList.add("article-container");
+      var href = document.createAttribute("href");
+      href.value = articles[i].onClickLink;
+      itemContainer.setAttributeNode(href);
+      var target = document.createAttribute("target");
+      target.value = '_blank';
+      itemContainer.setAttributeNode(target);
+
+      //Create Image
+      var image = document.createElement("img");
+      image.classList.add("article-image");
+      var src = document.createAttribute("src");
+      src.value = articles[i].imageSource;
+      image.setAttributeNode(src);
+      var alt = document.createAttribute("alt");
+      alt.value = articles[i].title;
+      image.setAttributeNode(alt);
+
+      //Create title
+      var h3 = document.createElement("h3");
+      h3.classList.add("article-title");
+      var h3Text = document.createTextNode(articles[i].title);
+      h3.appendChild(h3Text);
+
+      //Atach image and title to container
+      itemContainer.appendChild(image);
+      itemContainer.appendChild(h3);
+
+      //Attach element to root div
+      rootElement.appendChild(itemContainer);
+    }
+  });
+</script>
+
+<script>
+var dt = new Date();
+document.getElementById('date-time').innerHTML=dt;
+</script>
+
+<div id='imageGalleryWithTitle' class="news-container"></div>
+  
+</body>
+</html>
