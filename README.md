@@ -48,11 +48,9 @@ We welcome contributions from individuals who share our passion for making news 
 
 We value your feedback! If you have any suggestions, feature requests, or bug reports, please don't hesitate to [submit an issue](https://github.com/yourusername/newsie/issues).
 
-## Contributors 📜
+## License 📜
 
-->Chayan Mondal
-->Lord Sen
-->Shiladitya Mondal
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements 🙏
 
